@@ -113,3 +113,35 @@ mvn exec:java -Dexec.mainClass="ma.projet.test.TestExercice3"
 - Le schéma est mis à jour automatiquement (`hibernate.hbm2ddl.auto=update`)
 - Les requêtes SQL sont affichées dans la console (`hibernate.show_sql=true`)
 
+
+
+## ⚙️ Hibernate Configuration
+
+The following screenshots illustrate the Hibernate configuration used in this
+project.
+
+### Database Connection & Hibernate Properties
+
+This configuration is defined in the `hibernate.cfg.xml` file and includes:
+- MySQL database connection settings (driver, URL, username)
+- Hibernate dialect for MySQL
+- SQL logging configuration (`show_sql`, `format_sql`)
+- Automatic schema update using `hbm2ddl.auto=update`
+
+![Hibernate Configuration](evaluation.png)
+
+---
+
+### Entity Mapping Configuration
+
+The screenshot below shows the mapping of Java entities to database tables using
+Hibernate.
+
+All domain classes are explicitly declared in the configuration file using the
+`<mapping class="..."/>` directive, including:
+- Product management entities (Produit, Categorie, Commande, LigneCommande)
+- Project management entities (Projet, Tache, Employe, EmployeTache)
+- Relationship entities for Exercise 3 (Homme, Femme, Mariage)
+
+![Hibernate Entity Mappings](evaluation1.png)
+
