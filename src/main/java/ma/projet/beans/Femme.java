@@ -1,0 +1,82 @@
+package ma.projet.beans;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Table(name = "femme")
+@NamedNativeQuery(
+    name = "Femme.countEnfantsEntreDates",
+    query = "SELECT COALESCE(SUM(nombre_enfants), 0) as total FROM mariage WHERE femme_id = :femmeId " +
+            "AND date_debut BETWEEN :dateDebut AND :dateFin"
+)
+@NamedQuery(
+    name = "Femme.findMarieesAuMoinsDeuxFois",
+    query = "SELECT f FROM Femme f WHERE SIZE(f.mariages) >= 2"
+)
+public class Femme implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String nom;
+    private String prenom;
+    
+    @Temporal(TemporalType.DATE)
+    private Date dateNaissance;
+    
+    @OneToMany(mappedBy = "femme", cascade = CascadeType.ALL)
+    private List<Mariage> mariages;
+
+    public Femme() {
+    }
+
+    public Femme(String nom, String prenom, Date dateNaissance) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public List<Mariage> getMariages() {
+        return mariages;
+    }
+
+    public void setMariages(List<Mariage> mariages) {
+        this.mariages = mariages;
+    }
+}
+

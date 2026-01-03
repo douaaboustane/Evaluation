@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/gestion_stock?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        
+        <!-- JDBC connection pool settings -->
+        <property name="hibernate.connection.pool_size">10</property>
+        
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- Mapping files -->
+        <mapping class="ma.projet.classes.Produit"/>
+        <mapping class="ma.projet.classes.Categorie"/>
+        <mapping class="ma.projet.classes.Commande"/>
+        <mapping class="ma.projet.classes.LigneCommande"/>
+        
+        <!-- Exercice 2 -->
+        <mapping class="ma.projet.classes.Projet"/>
+        <mapping class="ma.projet.classes.Tache"/>
+        <mapping class="ma.projet.classes.Employe"/>
+        <mapping class="ma.projet.classes.EmployeTache"/>
+        
+        <!-- Exercice 3 -->
+        <mapping class="ma.projet.beans.Homme"/>
+        <mapping class="ma.projet.beans.Femme"/>
+        <mapping class="ma.projet.beans.Mariage"/>
+    </session-factory>
+</hibernate-configuration>
+
