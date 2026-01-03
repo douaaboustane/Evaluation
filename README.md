@@ -128,7 +128,7 @@ This configuration is defined in the `hibernate.cfg.xml` file and includes:
 - SQL logging configuration (`show_sql`, `format_sql`)
 - Automatic schema update using `hbm2ddl.auto=update`
 
-![Hibernate Configuration](evaluation.png)
+![Hibernate Configuration](evaluation1.png)
 
 ---
 
@@ -143,5 +143,5 @@ All domain classes are explicitly declared in the configuration file using the
 - Project management entities (Projet, Tache, Employe, EmployeTache)
 - Relationship entities for Exercise 3 (Homme, Femme, Mariage)
 
-![Hibernate Entity Mappings](evaluation1.png)
+![Hibernate Entity Mappings](evaluation2.png)
 
